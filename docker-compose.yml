@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  simulador-emprestimo:
+    build: .
+    container_name: simulador-emprestimo
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./data:/app/data  # Para persistência do H2
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    restart: unless-stopped
