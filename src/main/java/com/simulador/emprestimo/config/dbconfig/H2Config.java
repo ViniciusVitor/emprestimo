@@ -41,16 +41,11 @@ public class H2Config {
     @Bean(name = "h2EntityManager")
     public LocalContainerEntityManagerFactoryBean h2EntityManager(
             EntityManagerFactoryBuilder builder) {
-        Map<String, Object> properties = new HashMap<>();
-        //properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-        //properties.put("hibernate.hbm2ddl.auto", "create");
-        //properties.put("hibernate.show_sql", "true");
 
         return builder
                 .dataSource(h2DataSource())
                 .packages("com.simulador.emprestimo.model.h2")
                 .persistenceUnit("simulacao")
-                .properties(properties)
                 .build();
     }
 
